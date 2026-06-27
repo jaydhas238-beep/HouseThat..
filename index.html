@@ -510,6 +510,59 @@
 .footer-logo-circle:hover{
     transform:scale(1.05) rotate(5deg);
 }
+
+  html, body{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+}
+
+section, 
+.hero,
+.contact,
+.process,
+.careers,
+.reviews{
+  width:100%;
+  max-width:100%;
+}
+
+nav{
+  width:100%;
+  left:0;
+  right:0;
+}
+
+.nav-links{
+  display:flex;
+  gap:34px;
+  align-items:center;
+  white-space:nowrap;
+}
+
+.contact{
+  width:100%;
+  max-width:100%;
+  overflow:hidden;
+}
+
+.contact h2{
+  max-width:1200px;
+  margin:0 auto;
+  word-break:normal;
+}
+
+@media(max-width:900px){
+  .nav-links{
+    display:none;
+  }
+
+  .contact h2{
+    font-size:48px !important;
+    line-height:.95 !important;
+    letter-spacing:-2px !important;
+  }
+}
   </style>
 </head>
 
