@@ -775,34 +775,30 @@ Looking forward for more projects together"
     revealOnScroll();
 
     function sendApplication(event) {
-function sendApplication(event) {
   event.preventDefault();
 
   const name = document.getElementById("appName").value;
   const email = document.getElementById("appEmail").value;
   const role = document.getElementById("appRole").value;
 
-  const ownerEmail = "jaydhas238@gmail.com";
-
-  const subject = `Career Application - ${role}`;
+  const subject = "Career Application - " + role;
 
   const body =
-`Hello HouseThat,
+    "Hello HouseThat,%0D%0A%0D%0A" +
+    "I would like to apply for the role of " + role + ".%0D%0A%0D%0A" +
+    "Name: " + name + "%0D%0A" +
+    "Email: " + email + "%0D%0A" +
+    "Role: " + role + "%0D%0A%0D%0A" +
+    "I will attach my resume to this email.%0D%0A%0D%0A" +
+    "Thank you.";
 
-I would like to apply for the role of ${role}.
-
-Name: ${name}
-Email: ${email}
-Role: ${role}
-
-I will attach my resume to this email.
-
-Thank you.`;
-
-  const gmailLink =
-    `https://mail.google.com/mail/?view=cm&fs=1&to=${ownerEmail}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-  window.open(gmailLink, "_blank");
+  window.open(
+    "https://mail.google.com/mail/?view=cm&fs=1&to=jaydhas238@gmail.com&su=" +
+    encodeURIComponent(subject) +
+    "&body=" +
+    body,
+    "_blank"
+  );
 }
     function sendApplication(event) {
   event.preventDefault();
