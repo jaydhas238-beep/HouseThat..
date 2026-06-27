@@ -775,6 +775,7 @@ Looking forward for more projects together"
     revealOnScroll();
 
     function sendApplication(event) {
+function sendApplication(event) {
   event.preventDefault();
 
   const name = document.getElementById("appName").value;
@@ -784,6 +785,7 @@ Looking forward for more projects together"
   const ownerEmail = "jaydhas238@gmail.com";
 
   const subject = `Career Application - ${role}`;
+
   const body =
 `Hello HouseThat,
 
@@ -797,8 +799,10 @@ I will attach my resume to this email.
 
 Thank you.`;
 
-  window.location.href =
-    `mailto:${ownerEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const gmailLink =
+    `https://mail.google.com/mail/?view=cm&fs=1&to=${ownerEmail}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+  window.open(gmailLink, "_blank");
 }
     function sendApplication(event) {
   event.preventDefault();
