@@ -322,6 +322,57 @@
 .career-btn:hover {
   transform: translateY(-5px);
 }
+
+    .careers {
+  background: #e3d5c2;
+}
+
+.career-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: start;
+}
+
+.career-form {
+  background: #111;
+  padding: 34px;
+  border-radius: 32px;
+  display: grid;
+  gap: 16px;
+}
+
+.career-form input {
+  width: 100%;
+  padding: 18px 20px;
+  border-radius: 999px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+}
+
+.resume-note {
+  color: #d8d0c2;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.career-form button {
+  padding: 18px 24px;
+  border-radius: 999px;
+  border: none;
+  background: #f2eadf;
+  color: #111;
+  font-weight: 900;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+@media(max-width:900px) {
+  .career-box {
+    grid-template-columns: 1fr;
+  }
+}
   </style>
 </head>
 
@@ -581,10 +632,29 @@ Looking forward for more projects together"
         detail-driven design.
       </p>
 
-      <a class="career-btn" href="mailto:PASTE_EMAIL_HERE?subject=Career%20Application%20-%20HouseThat">
-        Apply for a Role
-      </a>
+     <section id="careers" class="careers reveal">
+  <h2 class="section-title">Careers</h2>
+
+  <div class="career-box">
+    <div>
+      <p class="big-text">Want to build bold spaces with HouseThat?</p>
+      <p class="para">
+        We’re open to architects, interior designers, site supervisors,
+        3D visualizers, interns, and creative collaborators.
+      </p>
     </div>
+
+    <form class="career-form" onsubmit="sendApplication(event)">
+      <input type="text" id="appName" placeholder="Full Name" required>
+      <input type="email" id="appEmail" placeholder="Email Address" required>
+      <input type="text" id="appRole" placeholder="Role Applying For" required>
+
+      <label class="resume-note">
+        Attach your resume manually after the email opens.
+      </label>
+
+      <button type="submit">Apply for a Role</button>
+    </form>
   </div>
 </section>
 
@@ -712,6 +782,33 @@ Looking forward for more projects together"
 
     window.addEventListener("scroll", revealOnScroll);
     revealOnScroll();
+
+    function sendApplication(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("appName").value;
+  const email = document.getElementById("appEmail").value;
+  const role = document.getElementById("appRole").value;
+
+  const ownerEmail = "jaydhas238@gmail.com";
+
+  const subject = `Career Application - ${role}`;
+  const body =
+`Hello HouseThat,
+
+I would like to apply for the role of ${role}.
+
+Name: ${name}
+Email: ${email}
+Role: ${role}
+
+I will attach my resume to this email.
+
+Thank you.`;
+
+  window.location.href =
+    `mailto:${ownerEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
   </script>
 
 </body>
