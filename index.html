@@ -65,6 +65,7 @@
     .nav-links a{position:relative;color:inherit}
     .nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:currentColor;transition:.3s}
     .nav-links a:hover::after{width:100%}
+    .menu-toggle{display:none;color:#fff;font-size:30px;font-weight:900;cursor:pointer;z-index:10001}
 
     .hero{min-height:100vh;position:relative;color:#fff;display:flex;align-items:end;padding:150px 6% 70px;overflow:hidden;background:#111;width:100%}
     .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.65;transform:scale(1.08);animation:slowZoom 14s ease infinite alternate}
@@ -169,6 +170,40 @@
       .contact h2{font-size:48px!important;line-height:.95!important;letter-spacing:-2px!important}.loader-logo-intro{width:118px;height:118px}.loader-title{font-size:46px;letter-spacing:-3px}@keyframes loaderText{to{max-width:340px;opacity:1;transform:translateX(0);margin-left:16px}}
       footer{display:block}footer p{margin-bottom:12px}
     }
+    .menu-toggle{
+    display:none;
+    color:#fff;
+    font-size:30px;
+    cursor:pointer;
+}
+
+@media (max-width:768px){
+
+    nav{
+        justify-content:space-between;
+    }
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:80px;
+        right:20px;
+        flex-direction:column;
+        background:#111;
+        padding:20px;
+        border-radius:15px;
+        gap:18px;
+        z-index:9999;
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+}
   </style>
 </head>
 
@@ -197,6 +232,8 @@
       <a href="#reviews">Reviews</a>
       <a href="#careers">Careers</a>
       <a href="#contact">Contact</a>
+
+      <div class="menu-toggle">&#9776;</div>
     </div>
   </nav>
 
@@ -423,5 +460,13 @@ Thank you.`;
     }
 }
   </script>
+  <script>
+const menu = document.querySelector(".menu-toggle");
+const nav = document.querySelector(".nav-links");
+
+menu.addEventListener("click", () => {
+    nav.classList.toggle("active");
+});
+</script>
 </body>
 </html>
