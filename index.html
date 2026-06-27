@@ -360,7 +360,7 @@
   </section>
 
   <footer>
-    <p>© 2026 HouseThat. All Rights Reserved.</p>
+    <p>© 2026 HouseThat. All Rights Reserved.Developed by Jayara Web Works</p>
     <p><a href="https://www.instagram.com/housethat.co" target="_blank">Instagram</a> • <a href="https://www.linkedin.com/in/anita-shah-55973a144" target="_blank">LinkedIn</a> • <a href="https://share.google/UdGgdHJrHTEwjmu0A" target="_blank">Google Business</a></p>
   </footer>
 
@@ -385,7 +385,43 @@
     const reveals=document.querySelectorAll(".reveal");
     function revealOnScroll(){reveals.forEach(section=>{const top=section.getBoundingClientRect().top;if(top<window.innerHeight-100){section.classList.add("active")}})}
     window.addEventListener("scroll",revealOnScroll);revealOnScroll();
-    function sendApplication(event){event.preventDefault();const name=document.getElementById("appName").value.trim();const email=document.getElementById("appEmail").value.trim();const role=document.getElementById("appRole").value;const ownerEmail="jaydhas238@gmail.com";const subject="Career Application - "+role;const body="Hello HouseThat,\n\n"+"I would like to apply for the role of "+role+".\n\n"+"Name: "+name+"\n"+"Email: "+email+"\n"+"Role: "+role+"\n\n"+"I will attach my resume to this email.\n\n"+"Thank you.";const gmailLink="https://mail.google.com/mail/?view=cm&fs=1&to="+encodeURIComponent(ownerEmail)+"&su="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);window.open(gmailLink,"_blank")}
+   function sendApplication(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("appName").value.trim();
+    const email = document.getElementById("appEmail").value.trim();
+    const role = document.getElementById("appRole").value;
+
+    const ownerEmail = "jaydhas238@gmail.com";
+    const subject = `Career Application - ${role}`;
+
+    const body =
+`Hello HouseThat,
+
+I would like to apply for the role of ${role}.
+
+Name: ${name}
+Email: ${email}
+Role: ${role}
+
+I have attached my resume.
+
+Thank you.`;
+
+    const mobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    if (mobile) {
+        // Opens phone's Email app
+        window.location.href =
+            `mailto:${ownerEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    } else {
+        // Opens Gmail website
+        window.open(
+            `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(ownerEmail)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
+            "_blank"
+        );
+    }
+}
   </script>
 </body>
 </html>
