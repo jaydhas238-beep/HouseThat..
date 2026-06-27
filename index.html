@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+F<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -784,6 +784,33 @@ Looking forward for more projects together"
   const ownerEmail = "jaydhas238@gmail.com";
 
   const subject = `Career Application - ${role}`;
+  const body =
+`Hello HouseThat,
+
+I would like to apply for the role of ${role}.
+
+Name: ${name}
+Email: ${email}
+Role: ${role}
+
+I will attach my resume to this email.
+
+Thank you.`;
+
+  window.location.href =
+    `mailto:${ownerEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+    function sendApplication(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("appName").value;
+  const email = document.getElementById("appEmail").value;
+  const role = document.getElementById("appRole").value;
+
+  const ownerEmail = "jaydhas238@gmail.com";
+
+  const subject = `Career Application - ${role}`;
+
   const body =
 `Hello HouseThat,
 
