@@ -27,7 +27,30 @@
     .loader-line span{display:block;height:100%;width:0;background:#f2eadf;animation:loadLine 2s ease forwards}
     @keyframes loadLine{to{width:100%}}
     @keyframes hideLoader{to{opacity:0;visibility:hidden}}
+.loader-logo-intro{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:22px;
+    animation:logoPop .8s ease;
+}
 
+@keyframes logoPop{
+    0%{
+        transform:scale(0);
+        opacity:0;
+    }
+
+    70%{
+        transform:scale(1.12);
+    }
+
+    100%{
+        transform:scale(1);
+        opacity:1;
+    }
+}
     .noise{
       position:fixed;inset:0;pointer-events:none;opacity:.05;z-index:900;
       background-image:radial-gradient(#000 1px,transparent 1px);background-size:4px 4px
@@ -491,12 +514,15 @@
 
 <body>
 
-  <div class="loader">
-    <h1>HouseThat</h1>
-    <p>Designing Homes</p>
-    <div class="loader-line"><span></span></div>
-  </div>
+    <div class="loader">
+    <img src="image5.jpg" class="loader-logo-intro">
 
+    <h1>HouseThat</h1>
+
+    <p>Designing Homes</p>
+
+    <div class="loader-line"><span></span></div>
+</div>
   <div class="noise"></div>
 
   <nav>
