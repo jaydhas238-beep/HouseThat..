@@ -425,6 +425,27 @@
     letter-spacing: -3px;
   }
 }
+    @media (max-width: 768px) {
+  .service-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    align-items: center;
+    font-size: 28px !important;
+    line-height: 1.05;
+    letter-spacing: -1px;
+    padding: 24px 0;
+  }
+
+  .service-row span:first-child {
+    max-width: 230px;
+    word-break: normal;
+  }
+
+  .service-row span:last-child {
+    font-size: 18px;
+  }
+}
   </style>
 </head>
 
